@@ -18,7 +18,7 @@ class ControladorVendas:
         return None
 
     def incluir_venda(self):
-        self.__controlador_sistema.controlador_usuaarios.lista_usuarios()
+        self.__controlador_sistema.controlador_usuarios.lista_usuarios()
         self.__controlador_sistema.controlador_skins.lista_skins()
         dados_venda = self.__tela_venda.pega_dados_venda()
 

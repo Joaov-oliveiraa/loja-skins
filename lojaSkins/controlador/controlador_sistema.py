@@ -1,12 +1,11 @@
 from lojaSkins.view.tela_sistema import TelaSistema
-from lojaSkins.controlador.controlador_usuario import ControladorUsuarios
-from lojaSkins.controlador.controlador_skin import ControladorSkins
-from lojaSkins.controlador.controlador_venda import ControladorVendas
-
+from lojaSkins.controlador.controlador_usuarios import ControladorUsuarios
+from lojaSkins.controlador.controlador_skins import ControladorSkins
+from lojaSkins.controlador.controlador_vendas import ControladorVendas
 
 class ControladorSistema:
 
-    def __int__(self):
+    def __init__(self):
         self.__controlador_skins = ControladorSkins(self)
         self.__controlador_usuarios = ControladorUsuarios(self)
         self.__controlador_vendas = ControladorVendas(self)
@@ -27,16 +26,17 @@ class ControladorSistema:
         self.__controlador_skins.abre_tela()
 
     def cadastra_usuarios(self):
+        # Chama o controlador de usuarios
         self.__controlador_usuarios.abre_tela()
 
     def cadastra_vendas(self):
         self.__controlador_vendas.abre_tela()
+        # Chama o controlador de vendas
 
     def encerra_sistema(self):
         exit(0)
 
     def abre_tela(self):
-        print("executou abre tela do controlador sistema")
         lista_opcoes = {1: self.cadastra_skins,
                         2: self.cadastra_usuarios,
                         3: self.cadastra_vendas,
