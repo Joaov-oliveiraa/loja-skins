@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ine5605-master/.idea/ine5605-master.iml" filepath="$PROJECT_DIR$/../ine5605-master/.idea/ine5605-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lojaSkins.iml" filepath="$PROJECT_DIR$/.idea/lojaSkins.iml" />
+    </modules>
+  </component>
+</project>
