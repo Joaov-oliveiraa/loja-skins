@@ -19,7 +19,7 @@ class ControladorVendas:
 
     def incluir_venda(self):
         self.__controlador_sistema.controlador_usuarios.lista_usuarios()
-        self.__controlador_sistema.controlador_skins.lista_skins()
+        self.__controlador_sistema.controlador_skins.lista_skin()
         dados_venda = self.__tela_venda.pega_dados_venda()
 
         usuario = self.__controlador_sistema.controlador_amigos.pega_venda_por_cpf(dados_venda["cpf"])

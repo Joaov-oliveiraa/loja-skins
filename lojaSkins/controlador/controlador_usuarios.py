@@ -40,7 +40,7 @@ class ControladorUsuarios:
 
     def lista_usuarios(self):
         for usuario in self.__usuarios:
-            self.__tela_usuario.mostra_usuario({"nome:": usuario.nome,
+            self.__tela_usuario.mostra_usuario({"nome": usuario.nome,
                                                 "cpf": usuario.cpf,
                                                 "steam id": usuario.steam_id,
                                                 "telefone": usuario.telefone})
