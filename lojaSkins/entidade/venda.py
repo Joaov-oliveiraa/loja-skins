@@ -21,7 +21,7 @@ class Venda:
 
     @property
     def skin(self):
-        return self.skin
+        return self.__skin
 
     @skin.setter
     def skin(self, skin: Skin):
