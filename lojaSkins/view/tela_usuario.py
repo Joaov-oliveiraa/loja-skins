@@ -20,12 +20,12 @@ class TelaUsuario:
         telefone = input("Telefone: ")
 
 
-        return {"nome": nome, "cpf": cpf, "steam_id": steam_id, "telefone": telefone}
+        return {"nome_usuario": nome, "cpf_usuario": cpf, "steam_id": steam_id, "telefone": telefone}
 
     def mostra_usuario(self, dados_usuario):
-        print("NOME DO USUARIO: ", dados_usuario["nome"])
-        print("CPF DO USUARIO: ", dados_usuario["cpf"])
-        print("STEAM ID DO USUARIO: ", dados_usuario["steam id"])
+        print("NOME DO USUARIO: ", dados_usuario["nome_usuario"])
+        print("CPF DO USUARIO: ", dados_usuario["cpf_usuario"])
+        print("STEAM ID DO USUARIO: ", dados_usuario["steam_id"])
         print("FONE DO USUARIO: ", dados_usuario["telefone"])
         print("\n")
 

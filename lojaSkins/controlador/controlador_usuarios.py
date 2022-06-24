@@ -17,8 +17,8 @@ class ControladorUsuarios:
 
     def adicionar_usuario(self):
         dados_usuario = self.__tela_usuario.pega_dados_usuario()
-        usuario = Usuario(dados_usuario["nome"],
-                          dados_usuario["cpf"],
+        usuario = Usuario(dados_usuario["nome_usuario"],
+                          dados_usuario["cpf_usuario"],
                           dados_usuario["steam_id"],
                           dados_usuario["telefone"])
         self.__usuarios.append(usuario)
@@ -30,9 +30,9 @@ class ControladorUsuarios:
 
         if usuario is not None:
             novos_dados_usuario = self.__tela_usuario.pega_dados_usuario()
-            usuario.nome = novos_dados_usuario["nome"]
-            usuario.cpf = novos_dados_usuario["cpf"]
-            usuario.steam_id = novos_dados_usuario["steam id"]
+            usuario.nome = novos_dados_usuario["nome_usuario"]
+            usuario.cpf = novos_dados_usuario["cpf_usuario"]
+            usuario.steam_id = novos_dados_usuario["steam_id"]
             usuario.telefone = novos_dados_usuario["telefone"]
             self.lista_usuarios()
         else:
@@ -40,9 +40,9 @@ class ControladorUsuarios:
 
     def lista_usuarios(self):
         for usuario in self.__usuarios:
-            self.__tela_usuario.mostra_usuario({"nome": usuario.nome,
-                                                "cpf": usuario.cpf,
-                                                "steam id": usuario.steam_id,
+            self.__tela_usuario.mostra_usuario({"nome_usuario": usuario.nome,
+                                                "cpf_usuario": usuario.cpf,
+                                                "steam_id": usuario.steam_id,
                                                 "telefone": usuario.telefone})
 
     def excluir_usuario(self):

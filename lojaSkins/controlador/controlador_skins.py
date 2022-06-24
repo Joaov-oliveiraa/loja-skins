@@ -11,29 +11,29 @@ class ControladorSkins:
 
     def pega_skin_por_codigo(self, codigo: int):
         for skin in self.__skins:
-            if skin.codigo == codigo:
+            if skin.codigo_skin == codigo:
                 return skin
         return None
 
     def incluir_skin(self):
         dados_skin = self.__tela_skin.get_dados_skin()
-        skin = Skin(dados_skin["arma"], dados_skin["name_skin"],
+        skin = Skin(dados_skin["arma"], dados_skin["nome_skin"],
                     dados_skin["raridade_float"], dados_skin["preco"],
-                    dados_skin["codigo"])
+                    dados_skin["codigo_skin"])
         self.__skins.append(skin)
 
     def alterar_skin(self):
         self.lista_skin()
-        codigo_skin = self.__tela_skin.seleciona_skin()
+        codigo_skin = int(self.__tela_skin.seleciona_skin())
         skin = self.pega_skin_por_codigo(codigo_skin)
 
         if skin is not None:
             novos_dados_skin = self.__tela_skin.get_dados_skin()
             skin.arma = novos_dados_skin["arma"]
-            skin.arma = novos_dados_skin["name_skin"]
-            skin.arma = novos_dados_skin["raridade_float"]
-            skin.arma = novos_dados_skin["preco"]
-            skin.arma = novos_dados_skin["codigo"]
+            skin.nome_skin = novos_dados_skin["nome_skin"]
+            skin.raridade_float = novos_dados_skin["raridade_float"]
+            skin.preco = novos_dados_skin["preco"]
+            skin.codigo_skin = novos_dados_skin["codigo_skin"]
             self.lista_skin()
         else:
             self.__tela_skin.mostra_mensagem("--Skin não cadastrada--")
@@ -42,14 +42,14 @@ class ControladorSkins:
         for skin in self.__skins:
             self.__tela_skin.mostra_dados_skin(
                 {"arma": skin.arma,
-                    "name_skin": skin.name_skin,
+                    "nome_skin": skin.nome_skin,
                     "raridade_float": skin.raridade_float,
                     "preco": skin.preco,
-                    "codigo": skin.codigo})
+                    "codigo_skin": skin.codigo_skin})
 
     def excluir_skin(self):
         self.lista_skin()
-        codigo_skin = self.__tela_skin.seleciona_skin()
+        codigo_skin = int(self.__tela_skin.seleciona_skin())
         skin = self.pega_skin_por_codigo(codigo_skin)
 
         if skin is not None:

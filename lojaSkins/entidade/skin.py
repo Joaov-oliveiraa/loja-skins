@@ -1,26 +1,26 @@
 class Skin:
-    def __init__(self, arma: str, name_skin: str, raridade_float: float, preco: float, codigo: int):
+    def __init__(self, arma: str, nome_skin: str, raridade_float: float, preco: float, codigo_skin: int):
         self.__arma = arma
-        self.__name_skin = name_skin
+        self.__nome_skin = nome_skin
         self.__raridade_float = raridade_float
         self.__preco = preco
-        self.__codigo = codigo
+        self.__codigo_skin = codigo_skin
 
     @property
-    def gun(self):
+    def arma(self):
         return self.__arma
 
-    @gun.setter
-    def gun(self, gun):
-        self.__arma = gun
+    @arma.setter
+    def arma(self, arma):
+        self.__arma = arma
 
     @property
-    def name_skin(self):
-        return self.__name_skin
+    def nome_skin(self):
+        return self.__nome_skin
 
-    @name_skin.setter
-    def name_skin(self, name_skin):
-        self.__name_skin = name_skin
+    @nome_skin.setter
+    def nome_skin(self, nome_skin):
+        self.__nome_skin = nome_skin
 
     @property
     def raridade_float(self):
@@ -39,9 +39,9 @@ class Skin:
         self.__preco = preco
 
     @property
-    def codigo(self):
-        return self.__codigo
+    def codigo_skin(self):
+        return self.__codigo_skin
 
-    @codigo.setter
-    def codigo(self, codigo):
-        self.__codigo = codigo
+    @codigo_skin.setter
+    def codigo_skin(self, codigo_skin):
+        self.__codigo_skin = codigo_skin

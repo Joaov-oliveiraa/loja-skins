@@ -13,13 +13,13 @@ class TelaVenda:
 
     def pega_dados_venda(self):
         print("-------- DADOS COMPRA ----------")
-        cpf = input("CPF Usuario: ")
-        codigo = input("Codigo Skin: ")
+        cpf_usuario = input("CPF Usuario: ")
+        codigo_skin = input("Codigo Skin: ")
 
-        return {"cpf": cpf, "codigo": codigo}
+        return {"cpf_usuario": cpf_usuario, "codigo_skin": codigo_skin}
 
     def mostra_venda(self, dados_venda):
-        print("CODIGO DA VENDA: ", dados_venda["codigo_venda"])
+        print("CODIGO DA VENDA: ", dados_venda["codigo_transacao"])
         print("NOME DA SKIN: ", dados_venda["nome_skin"])
         print("CODIGO DA SKIN: ", dados_venda["codigo_skin"])
         print("NOME DO USUARIO: ", dados_venda["nome_usuario"])

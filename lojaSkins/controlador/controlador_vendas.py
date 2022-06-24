@@ -22,18 +22,18 @@ class ControladorVendas:
         self.__controlador_sistema.controlador_skins.lista_skin()
         dados_venda = self.__tela_venda.pega_dados_venda()
 
-        usuario = self.__controlador_sistema.controlador_amigos.pega_venda_por_cpf(dados_venda["cpf"])
-        skin = self.__controlador_sistema.controlador_skins.pega_skin_por_codigo(dados_venda["codigo"])
+        usuario = self.__controlador_sistema.controlador_usuarios.pega_venda_por_cpf(dados_venda["cpf_usuario"])
+        skin = self.__controlador_sistema.controlador_skins.pega_skin_por_codigo(dados_venda["codigo_skin"])
         venda = Venda(usuario, skin, randint(0, 100))
         self.__vendas.append(venda)
 
     def lista_venda(self):
         for venda in self.__vendas:
-            self.__tela_venda.mostra_venda({"codigo": venda.codigo,
-                                            "titulo_livro": venda.skin.name_skin,
-                                            "codigo_livro": venda.skin.codigo,
-                                            "nome_amigo": venda.usuario.nome,
-                                            "cpf_amigo": venda.usuario.cpf})
+            self.__tela_venda.mostra_venda({"codigo_venda": venda.codigo_transacao,
+                                            "nome_skin": venda.skin.name_skin,
+                                            "codigo_skin": venda.skin.codigo_skin,
+                                            "nome_usuario": venda.usuario.nome,
+                                            "cpf_usuario": venda.usuario.cpf})
 
     def excluir_venda(self):
         self.lista_venda()
