@@ -20,6 +20,8 @@ class ControladorSistema:
         return self.__controlador_skins
 
     def inicializa_sistema(self):
+        self.__controlador_usuarios.adiciona_2_usuarios()
+        self.__controlador_skins.adiciona_2_skins()
         self.abre_tela()
 
     def cadastra_skins(self):

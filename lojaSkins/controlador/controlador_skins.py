@@ -9,6 +9,12 @@ class ControladorSkins:
         self.__controlador_sistema = controlador_sistema
         self.__tela_skin = TelaSkin()
 
+    def adiciona_2_skins(self):
+        skin1 = Skin("AK-47", "Red Line", 0.003, 25.50, 1)
+        skin2 = Skin("AWP", "Red Line", 0.0673, 50.00, 2)
+        self.__skins.append(skin1)
+        self.__skins.append(skin2)
+
     def pega_skin_por_codigo(self, codigo: int):
         for skin in self.__skins:
             if skin.codigo_skin == codigo:

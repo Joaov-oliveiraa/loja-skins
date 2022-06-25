@@ -5,12 +5,19 @@ from lojaSkins.entidade.usuario import Usuario
 class ControladorUsuarios:
 
     def __init__(self, controlador_sistema):
-        self.__usuarios = []
+        self.usuarios = []
         self.__controlador_sistema = controlador_sistema
         self.__tela_usuario = TelaUsuario()
 
+    def adiciona_2_usuarios(self):
+        usuario1 = Usuario("Renan Felix", "12345678900", "renanfelix", "9999990000")
+        usuario2 = Usuario("Joao Victor", "11010012300", "joao", "911110000")
+        self.usuarios.append(usuario1)
+        self.usuarios.append(usuario2)
+
+
     def pega_usuario_por_cpf(self, cpf: str):
-        for usuario in self.__usuarios:
+        for usuario in self.usuarios:
             if usuario.cpf == cpf:
                 return usuario
         return None
@@ -21,7 +28,7 @@ class ControladorUsuarios:
                           dados_usuario["cpf_usuario"],
                           dados_usuario["steam_id"],
                           dados_usuario["telefone"])
-        self.__usuarios.append(usuario)
+        self.usuarios.append(usuario)
 
     def alterar_usuario(self):
         self.lista_usuarios()
@@ -39,7 +46,7 @@ class ControladorUsuarios:
             self.__tela_usuario.mostra_mensagem("Usuario nao cadastrado")
 
     def lista_usuarios(self):
-        for usuario in self.__usuarios:
+        for usuario in self.usuarios:
             self.__tela_usuario.mostra_usuario({"nome_usuario": usuario.nome,
                                                 "cpf_usuario": usuario.cpf,
                                                 "steam_id": usuario.steam_id,
@@ -51,7 +58,7 @@ class ControladorUsuarios:
         usuario = self.pega_usuario_por_cpf(cpf_usuario)
 
         if usuario is not None:
-            self.__usuarios.remove(usuario)
+            self.usuarios.remove(usuario)
             self.lista_usuarios()
         else:
             self.__tela_usuario.mostra_mensagem("Usuario nao cadastrado")
