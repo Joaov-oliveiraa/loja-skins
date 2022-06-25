@@ -12,6 +12,7 @@ class TelaUsuario:
         opcao = int(input("Escolha a opcao: "))
         return opcao
 
+
     def pega_dados_usuario(self):
         print("-------- DADOS USUARIO ----------")
         nome = input("Nome: ")
