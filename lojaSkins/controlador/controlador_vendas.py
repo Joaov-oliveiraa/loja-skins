@@ -27,13 +27,14 @@ class ControladorVendas:
         venda = Venda(usuario, skin, randint(0, 100))
         self.__vendas.append(venda)
 
+
     def lista_venda(self):
         for venda in self.__vendas:
-            self.__tela_venda.mostra_venda({"codigo_venda": venda.codigo_transacao,
-                                            "nome_skin": venda.skin.nome_skin,
-                                            "codigo_skin": venda.skin.codigo_skin,
+            self.__tela_venda.mostra_venda({"codigo_transacao": venda.codigo_transacao,
                                             "nome_usuario": venda.usuario.nome,
-                                            "cpf_usuario": venda.usuario.cpf})
+                                            "cpf_usuario": venda.usuario.cpf,
+                                            "nome_skin": venda.skin.nome_skin,
+                                            "codigo_skin": venda.skin.codigo_skin})
 
     def excluir_venda(self):
         self.lista_venda()

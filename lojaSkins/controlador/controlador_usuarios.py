@@ -10,8 +10,8 @@ class ControladorUsuarios:
         self.__tela_usuario = TelaUsuario()
 
     def adiciona_2_usuarios(self):
-        usuario1 = Usuario("Renan Felix", "12345678900", "renanfelix", "9999990000")
-        usuario2 = Usuario("Joao Victor", "11010012300", "joao", "911110000")
+        usuario1 = Usuario("Renan Felix", "111", "renanfelix", "99")
+        usuario2 = Usuario("Joao Victor", "222", "joao", "91")
         self.usuarios.append(usuario1)
         self.usuarios.append(usuario2)
 
