@@ -3,9 +3,9 @@ class TelaVenda:
     def tela_opcoes(self):
         print("-------- VENDA ----------")
         print("Escolha a opcao")
-        print("1 - Fazer Compra")
-        print("2 - Listar Compras")
-        print("3 - Devolver Compra")
+        print("1 - Fazer Venda")
+        print("2 - Listar Vendas")
+        print("3 - Excluir Venda")
         print("0 - Retornar")
 
         opcao = int(input("Escolha a opcao: "))

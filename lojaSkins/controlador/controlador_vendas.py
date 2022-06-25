@@ -13,7 +13,7 @@ class ControladorVendas:
 
     def pega_venda_por_codigo(self, codigo: int):
         for venda in self.__vendas:
-            if venda.codigo == codigo:
+            if venda.codigo_transacao == codigo:
                 return venda
         return None
 
