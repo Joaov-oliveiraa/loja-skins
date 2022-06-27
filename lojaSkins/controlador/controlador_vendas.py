@@ -77,12 +77,12 @@ class ControladorVendas:
                                                           "media_vendas": media_vendas})
 
     def faca_2_vendas(self):
-        usuario1 = self.__controlador_sistema.controlador_usuarios.pega_usuario_por_cpf("111")
+        usuario1 = self.__controlador_sistema.controlador_usuarios.pega_usuario_por_cpf("11122233344")
         skin3 = self.__controlador_sistema.controlador_skins.pega_skin_por_codigo(3)
         venda1 = Venda(usuario1, skin3, randint(0, 100))
         self.__vendas.append(venda1)
         self.__controlador_sistema.controlador_skins.remove_skin_da_lista(skin3)
-        usuario2 = self.__controlador_sistema.controlador_usuarios.pega_usuario_por_cpf("222")
+        usuario2 = self.__controlador_sistema.controlador_usuarios.pega_usuario_por_cpf("12345678900")
         skin4 = self.__controlador_sistema.controlador_skins.pega_skin_por_codigo(4)
         venda2 = Venda(usuario2, skin4, randint(0, 100))
         self.__vendas.append(venda2)

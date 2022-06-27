@@ -80,7 +80,7 @@ class ControladorSkins:
 
     def adiciona_2_skins(self):
         skin1 = Skin("AK-47", "Red Line", 0.003, 25.50, 1)
-        skin2 = Skin("AWP", "Red Line", 0.0673, 50.00, 2)
+        skin2 = Skin("AWP", "Fire", 0.0673, 50.00, 2)
         skin3 = Skin("GLOCK", "Magistral", 0.56, 26.00, 3)
         skin4 = Skin("USP", "Esmeralda", 0.39, 35.00, 4)
         self.__skins.append(skin1)

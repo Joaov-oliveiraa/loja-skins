@@ -88,8 +88,8 @@ class ControladorUsuarios:
                                                     "valores_vendas": usuario.valores_vendas})
 
     def adiciona_2_usuarios(self):
-        usuario1 = Usuario("Renan Felix", "111", "renanfelix", "99")
-        usuario2 = Usuario("Joao Victor", "222", "joao", "91")
+        usuario1 = Usuario("Renan Felix", "11122233344", "renanfelix", "999990001")
+        usuario2 = Usuario("Joao Victor", "12345678900", "joao", "999990000")
         self.__usuarios.append(usuario1)
         self.__usuarios.append(usuario2)
 
