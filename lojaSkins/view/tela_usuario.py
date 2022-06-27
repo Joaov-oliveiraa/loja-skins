@@ -28,9 +28,13 @@ class TelaUsuario:
         print("-------- DADOS USUARIO ----------")
         nome = input("Nome: ")
         cpf = input("CPF: ")
-        steam_id = input("STEAM ID: ")
-        telefone = input("Telefone: ")
+        steam_id = input("STEAM ID: ").upper()
+        telefone = input("Telefone (apenas numero): ")
 
+        while len(cpf) is not 11 or not cpf.isdigit() :
+            cpf = input("CPF inválido, por favor, digite novamente:  ")
+        while len(telefone) is not 9 or not telefone.isdigit():
+            telefone = input("Telefone inválido, por favor digite novamente: ")
 
         return {"nome_usuario": nome, "cpf_usuario": cpf, "steam_id": steam_id, "telefone": telefone}
 
@@ -44,6 +48,8 @@ class TelaUsuario:
     def seleciona_usuario(self):
         print("\n")
         cpf = input("CPF do usuario que deseja selecionar: ")
+        while len(cpf) is not 11 or not cpf.isdigit() :
+            cpf = input("CPF inválido, por favor digite novamente :  ")
         return cpf
 
     def mostra_mensagem(self, msg):
@@ -54,6 +60,9 @@ class TelaUsuario:
         print("-------- ALTERAR DADOS USUARIO ----------")
         steam_id = input("STEAM ID: ")
         telefone = input("Telefone: ")
+
+        while len(telefone) is not 9 or not telefone.isdigit():
+            telefone = input("Telefone inválido, por favor digite novamente: ")
 
         return {"steam_id": steam_id, "telefone": telefone}
 

@@ -9,11 +9,7 @@ class TelaVenda:
         print("3 - Mostrar Estatísticas")
         print("0 - Retornar")
 
-        opcao = input("Escolha a opcao: ")
-        while not opcao.isdigit():
-            print("\nOpcao invalida\n")
-            opcao = input("Digite novamente uma opcao: ")
-        opcao = int(opcao)
+        opcao = int(input("Escolha a opcao: "))
         while not 0 <= opcao <= 3:
             print("\nOpcao invalida\n")
             opcao = int(input("Digite novamente uma opcao: "))
@@ -26,6 +22,11 @@ class TelaVenda:
         cpf_usuario = input("CPF Usuario: ")
         codigo_skin = int(input("Codigo Skin: "))
         preco = float(input("Valor da transação: R$ "))
+
+        while len(cpf_usuario) != 11 or not cpf_usuario.isdigit() :
+            cpf_usuario = input("CPF inválido, por favor, digite um valor válido:  ")
+        while not codigo_skin.isdigit():
+            codigo_skin = input("\nCodigo invalido, digite novamente o numero corretamente: ")
 
         return {"cpf_usuario": cpf_usuario, "codigo_skin": codigo_skin, "preco": preco}
 

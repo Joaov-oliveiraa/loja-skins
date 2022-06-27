@@ -17,11 +17,17 @@ class ControladorUsuarios:
 
     def adicionar_usuario(self):
         dados_usuario = self.__tela_usuario.pega_dados_usuario()
-        usuario = Usuario(dados_usuario["nome_usuario"],
+        usuario1 = Usuario(dados_usuario["nome_usuario"],
                           dados_usuario["cpf_usuario"],
                           dados_usuario["steam_id"],
                           dados_usuario["telefone"])
-        self.__usuarios.append(usuario)
+
+        for usuario in self.__usuarios:
+            if usuario.cpf == dados_usuario["cpf_usuario"]:
+                self.__usuarios.remove(usuario)
+
+        self.__usuarios.append(usuario1)
+
 
     def alterar_usuario(self):
         self.lista_usuarios()
