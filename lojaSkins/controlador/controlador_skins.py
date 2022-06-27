@@ -1,6 +1,6 @@
 from lojaSkins.view.tela_skin import TelaSkin
 from lojaSkins.entidade.skin import Skin
-
+from random import randint
 
 class ControladorSkins:
 
@@ -9,11 +9,9 @@ class ControladorSkins:
         self.__controlador_sistema = controlador_sistema
         self.__tela_skin = TelaSkin()
 
-    def adiciona_2_skins(self):
-        skin1 = Skin("AK-47", "Red Line", 0.003, 25.50, 1)
-        skin2 = Skin("AWP", "Red Line", 0.0673, 50.00, 2)
-        self.__skins.append(skin1)
-        self.__skins.append(skin2)
+    def remove_skin_da_lista(self, skin: Skin):
+        if skin in self.__skins:
+            self.__skins.remove(skin)
 
     def pega_skin_por_codigo(self, codigo: int):
         for skin in self.__skins:
@@ -23,6 +21,11 @@ class ControladorSkins:
 
     def incluir_skin(self):
         dados_skin = self.__tela_skin.get_dados_skin()
+
+        for skin in self.__skins:
+            if dados_skin["codigo_skin"] == skin.codigo_skin:
+                dados_skin["codigo_skin"] = randint(0, 1000)
+
         skin = Skin(dados_skin["arma"], dados_skin["nome_skin"],
                     dados_skin["raridade_float"], dados_skin["preco"],
                     dados_skin["codigo_skin"])
@@ -34,12 +37,8 @@ class ControladorSkins:
         skin = self.pega_skin_por_codigo(codigo_skin)
 
         if skin is not None:
-            novos_dados_skin = self.__tela_skin.get_dados_skin()
-            skin.arma = novos_dados_skin["arma"]
-            skin.nome_skin = novos_dados_skin["nome_skin"]
-            skin.raridade_float = novos_dados_skin["raridade_float"]
+            novos_dados_skin = self.__tela_skin.get_dados_skin_para_alterar()
             skin.preco = novos_dados_skin["preco"]
-            skin.codigo_skin = novos_dados_skin["codigo_skin"]
             self.lista_skin()
         else:
             self.__tela_skin.mostra_mensagem("--Skin não cadastrada--")
@@ -74,3 +73,17 @@ class ControladorSkins:
         continua = True
         while continua:
             lista_opcoes[self.__tela_skin.tela_opcoes()]()
+
+    def alterar_preco_skin(self, skin: Skin, preco: float):
+        if skin is not None:
+            skin.preco = preco
+
+    def adiciona_2_skins(self):
+        skin1 = Skin("AK-47", "Red Line", 0.003, 25.50, 1)
+        skin2 = Skin("AWP", "Red Line", 0.0673, 50.00, 2)
+        skin3 = Skin("GLOCK", "Magistral", 0.56, 26.00, 3)
+        skin4 = Skin("USP", "Esmeralda", 0.39, 35.00, 4)
+        self.__skins.append(skin1)
+        self.__skins.append(skin2)
+        self.__skins.append(skin3)
+        self.__skins.append(skin4)

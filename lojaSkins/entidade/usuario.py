@@ -5,6 +5,7 @@ class Usuario:
         self.__cpf = cpf
         self.__steam_id = steam_id
         self.__telefone = telefone
+        self.__valores_vendas = 0.0
 
     @property
     def nome(self):
@@ -37,3 +38,11 @@ class Usuario:
     @telefone.setter
     def telefone(self, telefone: str):
         self.__telefone = telefone
+
+    @property
+    def valores_vendas(self):
+        return self.__valores_vendas
+
+    @valores_vendas.setter
+    def valores_vendas(self, valores_vendas: float):
+        self.__valores_vendas = valores_vendas

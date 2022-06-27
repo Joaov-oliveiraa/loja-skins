@@ -1,18 +1,13 @@
-class Skin:
+from lojaSkins.entidade.arma import Arma
+
+class Skin(Arma):
     def __init__(self, arma: str, nome_skin: str, raridade_float: float, preco: float, codigo_skin: int):
-        self.__arma = arma
+        super().__init__(arma)
         self.__nome_skin = nome_skin
         self.__raridade_float = raridade_float
         self.__preco = preco
         self.__codigo_skin = codigo_skin
 
-    @property
-    def arma(self):
-        return self.__arma
-
-    @arma.setter
-    def arma(self, arma):
-        self.__arma = arma
 
     @property
     def nome_skin(self):

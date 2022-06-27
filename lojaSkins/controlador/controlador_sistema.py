@@ -22,18 +22,17 @@ class ControladorSistema:
     def inicializa_sistema(self):
         self.__controlador_usuarios.adiciona_2_usuarios()
         self.__controlador_skins.adiciona_2_skins()
+        self.__controlador_vendas.faca_2_vendas()
         self.abre_tela()
 
     def cadastra_skins(self):
         self.__controlador_skins.abre_tela()
 
     def cadastra_usuarios(self):
-        # Chama o controlador de usuarios
         self.__controlador_usuarios.abre_tela()
 
     def cadastra_vendas(self):
         self.__controlador_vendas.abre_tela()
-        # Chama o controlador de vendas
 
     def encerra_sistema(self):
         exit(0)
