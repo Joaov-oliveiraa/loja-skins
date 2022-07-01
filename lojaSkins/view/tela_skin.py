@@ -30,8 +30,6 @@ class TelaSkin:
             raridade_float = float(input("\nFloat incorreto, digite um valor válido entre 0 e 1: "))
         while preco <= 0.0:
             preco = float(input("\nPreco incorreto, digite um valor válido: R$"))
-        while not codigo_skin.isdigit():
-            codigo_skin = input("\nCodigo invalido, digite novamente o numero corretamente: ")
 
         return {"arma": arma,
                 "nome_skin": nome_skin,

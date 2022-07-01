@@ -25,8 +25,6 @@ class TelaVenda:
 
         while len(cpf_usuario) != 11 or not cpf_usuario.isdigit() :
             cpf_usuario = input("CPF inválido, por favor, digite um valor válido:  ")
-        while not codigo_skin.isdigit():
-            codigo_skin = input("\nCodigo invalido, digite novamente o numero corretamente: ")
 
         return {"cpf_usuario": cpf_usuario, "codigo_skin": codigo_skin, "preco": preco}
 
