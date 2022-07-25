@@ -25,7 +25,7 @@ class TelaUsuario():
         # sg.theme_previewer()
         sg.ChangeLookAndFeel('DarkTeal4')
         layout = [
-            [sg.Text('-------- AMIGOS ----------', font=("Helvica", 25))],
+            [sg.Text('-- USUARIO --', font=("Helvica", 25))],
             [sg.Text('Escolha sua opção', font=("Helvica", 15))],
             [sg.Radio('Incluir Usuario', "RD1", key='1')],
             [sg.Radio('Alterar Steam Id e Telefone', "RD1", key='2')],
@@ -35,7 +35,7 @@ class TelaUsuario():
             [sg.Radio('Retornar', "RD1", key='0')],
             [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
         ]
-        self.__window = sg.Window('Sistema de livros').Layout(layout)
+        self.__window = sg.Window('SIN Skins').Layout(layout)
 
     def pega_dados_usuario(self):
         sg.ChangeLookAndFeel('DarkTeal4')
@@ -71,7 +71,7 @@ class TelaUsuario():
     def seleciona_usuario(self):
         sg.ChangeLookAndFeel('DarkTeal4')
         layout = [
-            [sg.Text('-------- SELECIONAR USUARIO ----------', font=("Helvica", 25))],
+            [sg.Text('-- SELECIONAR USUARIO --', font=("Helvica", 25))],
             [sg.Text('Digite o CPF do usuario que deseja selecionar:', font=("Helvica", 15))],
             [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf_usuario')],
             [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
@@ -97,7 +97,7 @@ class TelaUsuario():
     def pega_dados_usuario_para_alterar(self):
         sg.ChangeLookAndFeel('DarkTeal4')
         layout = [
-            [sg.Text('-------- DADOS USUARIO PARA ALTERAR ----------', font=("Helvica", 25))],
+            [sg.Text('-- DADOS USUARIO PARA ALTERAR --', font=("Helvica", 25))],
             [sg.Text('Steam id:', size=(15, 1)), sg.InputText('', key='steam_id')],
             [sg.Text('Telefone:', size=(15, 1)), sg.InputText('', key='telefone')],
             [sg.Button('Confirmar'), sg.Cancel('Cancelar')]

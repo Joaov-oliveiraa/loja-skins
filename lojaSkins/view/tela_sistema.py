@@ -37,4 +37,4 @@ class TelaSistema:
             [sg.Radio('Encerrar sistema',"RD1", key='0')],
             [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
         ]
-        self.__window = sg.Window('Sistema de livros').Layout(layout)
+        self.__window = sg.Window('SIN SKINS').Layout(layout)
