@@ -1,75 +1,122 @@
-class TelaUsuario:
+import PySimpleGUI as sg
+
+class TelaUsuario():
 
     def tela_opcoes(self):
-        print("\n")
-        print("-------- USUARIO ----------")
-        print("Escolha a opcao")
-        print("1 - Incluir Usuario")
-        print("2 - Alterar Steam ID e Telefone do Usuario")
-        print("3 - Listar Usuarios")
-        print("4 - Mostrar somatorio das compras do Usuario")
-        print("5 - Excluir Usuario")
-        print("0 - Retornar")
+        self.init_opcoes()
+        button, values = self.open()
+        if values['1']:
+            opcao = 1
+        if values['2']:
+            opcao = 2
+        if values['3']:
+            opcao = 3
+        if values['4']:
+            opcao = 4
+        if values['5']:
+            opcao = 5
+        if values['0'] or button in (None, 'Cancelar'):
+            opcao = 0
 
-        opcao = input("Escolha a opcao: ")
-        while not opcao.isdigit():
-            print("\nOpcao invalida\n")
-            opcao = input("Digite novamente uma opcao: ")
-        opcao = int(opcao)
-        while not 0 <= opcao <= 5:
-            print("\nOpcao invalida\n")
-            opcao = int(input("Digite novamente uma opcao: "))
-
+        self.close()
         return opcao
 
+    def init_opcoes(self):
+        # sg.theme_previewer()
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+            [sg.Text('-------- AMIGOS ----------', font=("Helvica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvica", 15))],
+            [sg.Radio('Incluir Usuario', "RD1", key='1')],
+            [sg.Radio('Alterar Steam Id e Telefone', "RD1", key='2')],
+            [sg.Radio('Listar Usuario', "RD1", key='3')],
+            [sg.Radio('Mostrar somatorio das compras do Usuario', "RD1", key='4')],
+            [sg.Radio('Excluir Usuario', "RD1", key='5')],
+            [sg.Radio('Retornar', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de livros').Layout(layout)
 
     def pega_dados_usuario(self):
-        print("\n")
-        print("-------- DADOS USUARIO ----------")
-        nome = input("Nome: ")
-        cpf = input("CPF: ")
-        steam_id = input("STEAM ID: ").upper()
-        telefone = input("Telefone (apenas numero): ")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+            [sg.Text('-------- DADOS USUARIO ----------', font=("Helvica", 25))],
+            [sg.Text('Nome:', size=(15, 1)), sg.InputText('', key='nome_usuario')],
+            [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf_usuario')],
+            [sg.Text('Steam id:', size=(15, 1)), sg.InputText('', key='steam_id')],
+            [sg.Text('Telefone:', size=(15, 1)), sg.InputText('', key='telefone')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Loja Skins').Layout(layout)
 
-        while len(cpf) is not 11 or not cpf.isdigit() :
-            cpf = input("CPF inválido, por favor, digite novamente:  ")
-        while len(telefone) is not 9 or not telefone.isdigit():
-            telefone = input("Telefone inválido, por favor digite novamente: ")
+        button, values = self.open()
+        nome = values['nome_usuario']
+        cpf = values['cpf_usuario']
+        steam_id = values['steam_id']
+        telefone = values['telefone']
 
-        return {"nome_usuario": nome, "cpf_usuario": cpf, "steam_id": steam_id, "telefone": telefone}
+        self.close()
+        return {"nome_usuario": nome,"cpf_usuario": cpf, "steam_id": steam_id, "telefone": telefone}
 
     def mostra_usuario(self, dados_usuario):
-        print("\n")
-        print("NOME DO USUARIO: ", dados_usuario["nome_usuario"])
-        print("CPF DO USUARIO: ", dados_usuario["cpf_usuario"])
-        print("STEAM ID DO USUARIO: ", dados_usuario["steam_id"])
-        print("FONE DO USUARIO: ", dados_usuario["telefone"])
+        string_todos_usuarios = ""
+
+        string_todos_usuarios = string_todos_usuarios + "NOME DO USUARIO: " + dados_usuario["nome_usuario"] + '\n'
+        string_todos_usuarios = string_todos_usuarios + "CPF DO USUARIO: " + dados_usuario["cpf_usuario"] + '\n'
+        string_todos_usuarios = string_todos_usuarios + "STEAM ID DO USUARIO: " + dados_usuario["steam_id"] + '\n'
+        string_todos_usuarios = string_todos_usuarios + "TELEFONE DO USUARIO: " + dados_usuario["telefone"] + '\n'
+
+        sg.Popup('-------- LISTA DE USUARIOS ----------', string_todos_usuarios)
 
     def seleciona_usuario(self):
-        print("\n")
-        cpf = input("CPF do usuario que deseja selecionar: ")
-        while len(cpf) is not 11 or not cpf.isdigit() :
-            cpf = input("CPF inválido, por favor digite novamente :  ")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+            [sg.Text('-------- SELECIONAR USUARIO ----------', font=("Helvica", 25))],
+            [sg.Text('Digite o CPF do usuario que deseja selecionar:', font=("Helvica", 15))],
+            [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf_usuario')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Seleciona usuario').Layout(layout)
+
+        button, values = self.open()
+        cpf = values['cpf_usuario']
+        self.close()
         return cpf
 
-    def mostra_mensagem(self, msg):
-        print(msg)
+    def mostra_usuario_com_valores(self, dados_usuario):
+        string_todos_usuarios = ""
+
+        string_todos_usuarios = string_todos_usuarios + "NOME DO USUARIO: " + dados_usuario["nome_usuario"] + '\n'
+        string_todos_usuarios = string_todos_usuarios + "CPF DO USUARIO: " + dados_usuario["cpf_usuario"] + '\n'
+        string_todos_usuarios = string_todos_usuarios + "STEAM ID DO USUARIO: " + dados_usuario["steam_id"] + '\n'
+        string_todos_usuarios = string_todos_usuarios + "TELEFONE DO USUARIO: " + dados_usuario["telefone"] + '\n'
+        string_todos_usuarios = string_todos_usuarios + "VALOR DAS SKINS COMPRADAS: " + dados_usuario["valores_venda"] + '\n'
+
+        sg.Popup('-------- LISTA DE USUARIOS ----------', string_todos_usuarios)
 
     def pega_dados_usuario_para_alterar(self):
-        print("\n")
-        print("-------- ALTERAR DADOS USUARIO ----------")
-        steam_id = input("STEAM ID: ")
-        telefone = input("Telefone: ")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+            [sg.Text('-------- DADOS USUARIO PARA ALTERAR ----------', font=("Helvica", 25))],
+            [sg.Text('Steam id:', size=(15, 1)), sg.InputText('', key='steam_id')],
+            [sg.Text('Telefone:', size=(15, 1)), sg.InputText('', key='telefone')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Loja Skins').Layout(layout)
 
-        while len(telefone) is not 9 or not telefone.isdigit():
-            telefone = input("Telefone inválido, por favor digite novamente: ")
+        button, values = self.open()
+        steam_id = values['steam_id']
+        telefone = values['telefone']
 
+        self.close()
         return {"steam_id": steam_id, "telefone": telefone}
 
-    def mostra_usuario_com_valores(self, dados_usuario):
-        print("\n")
-        print("NOME DO USUARIO: ", dados_usuario["nome_usuario"])
-        print("CPF DO USUARIO: ", dados_usuario["cpf_usuario"])
-        print("STEAM ID DO USUARIO: ", dados_usuario["steam_id"])
-        print("FONE DO USUARIO: ", dados_usuario["telefone"])
-        print("VALOR DAS SKINS COMPRADAS: ", dados_usuario["valores_vendas"])
+    def mostra_mensagem(self, msg):
+        sg.popup("", msg)
+
+    def close(self):
+        self.__window.Close()
+
+    def open(self):
+        button, values = self.__window.Read()
+        return button, values
